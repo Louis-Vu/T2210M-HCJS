@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout</title>
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+
+<section class="section main">
+    <div class="container">
+        <h1 id="cityname">Tên thành phố</h1>
+        <h2><span id="nd">35</span><sup>o</sup>C</h2>
+        <h3 ><span id="da">độ ẩm</span>%</h3>
+        <h3 id="as">áp suất </h3>
+        <p id="weather">Trời hôm nay nhiều mây</p>
+        <p><img src="https://openweathermap.org/img/wn/04d@2x.png" id="icon"/> </p>
+    </div>
+</section>
+<script type="text/javascript">
+    //step1: GET DATA FROM WEB API
+    var xhtttp = new XMLHttpRequest();
+    xhtttp.onload = function (){
+        //Step 2:transfer to js object
+        var result = this.responseText;
+        var data = JSON.parse(result);
+        //console.log(data);
+        //end step 2
+        //step 3:using data
+        var city = data.name;
+        var ctn = document.getElementById("cityname");
+        ctn.innerText = city;
+        console.log(city)
+
+        var temp = data.main.temp;
+        var nd = document.getElementById("nd")
+        nd.innerText = temp
+        console.log(temp)
+        var humidity = data.main.humidity;
+        var da = document.getElementById("da");
+        da.innerText = humidity
+
+        var pressure = data.main.pressure;
+        var as = document.getElementById("as");
+        as.innerText = pressure
+        var weather = data.weather;
+        var weather = data.weather
+        var str = "";
+        var ic = ""
+        for(var i=0; i<weather.length; i++){
+            str += weather[i].description;
+            ic = weather[i].icon;
+        }
+        var may = document.getElementById("weather");
+        may.innerText = str;
+        var src = 'https://openweathermap.org/img/wn/${ic}2x.png'
+        document.getElementById("ds").innerText = src;
+
+    }
+    xhtttp.open("GET","https://api.openweathermap.org/data/2.5/weather?q=Hanoi,vietnam&appid=09a71427c59d38d6a34f89b47d75975c&units=metric")
+    xhtttp.send();
+</script>
+
+</body>
+</html>

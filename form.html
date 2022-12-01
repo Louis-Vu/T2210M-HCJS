@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+  <form method="get" action="#">
+    <input name="fullname" type="text" placeholder="Fullname" required/>
+    <input name="email" type="email" placeholder="Email" required/>
+    <input name="password" type="password" placeholder="password"required/>
+      <input name="age" type="number" placeholder="age"/>
+      <input name="birthday" type="date" placeholder="birthday"/>
+      <input name="time" type="time" placeholder="timme"/>
+     <br>
+      <input name="phone" type="tel" placeholder="phone"/>
+      <input name="w" type="week" placeholder="week"/>
+
+      <label><input name="gender" type="radio" value="male"/>Nam</label>
+      <label><input name="gender" type="radio" value="Female"/>Nữ</label>
+      <label><input name="gender" type="radio" value="other">Khác</label>
+
+      <label><input name="multi" type="checkbox" value="m1">Đáp án 1</label>
+      <label><input name="multi" type="checkbox" value="m2">Đáp án 2</label>
+      <label><input name="multi" type="checkbox" value="m3">Đáp án 3</label>
+      <label><input name="multi" type="checkbox" value="m4">Đáp án 4</label>
+      <textarea name="des" placeholder="Tiểu sử"></textarea>
+      <br>
+      <select name="country">
+          <option value="VN">Việt Nam</option>
+          <option value="Lao">Lào</option>
+          <option value="TL">Thái Lan</option>
+          <option value="cpc">Campuchia</option>
+      </select>
+    <br/>
+    <button type="reset">reset</button>
+    <button TYPE="submit">Submit</button>
+    <button TYPE="button">button</button>
+  </form>
+
+</body>
+</html>

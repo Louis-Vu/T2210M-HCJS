@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    color: #000000;
+    font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #fafafa;
+    font-weight: 400;
+    text-align: center;
+}
+a {
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+img{
+    max-width: 100%;
+}
+.section{
+    float: left;
+    width: 100%;
+}
+.container{
+    float: none;
+    width: 1200px;
+    margin: 0 auto;
+}
+.menu li{
+    float: left;
+    margin-right: 20px;
+}

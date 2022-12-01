@@ -1,45 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Test</title>
-  <link rel="stylesheet" href="css/Test.css">
+  <meta charset="UTF-8">
+  <title>weather</title>
+  <link rel="stylesheet" href="css/ww.css">
 </head>
 <body>
-  <div>
-    <img src="images/To_Huu.jpg" alt="To huu"/>
-    <h2>Tố Hữu</h2>
+<section class="section">
+  <div class="container">
+    <div id="weather">
+    </div>
   </div>
-  <div>
-    <img src="images/To_Huu.jpg" alt="To huu"/>
-    <h2>Tố Hữu</h2>
-  </div>
-  <div>
-    <img src="images/To_Huu.jpg" alt="To huu"/>
-    <h2>Tố Hữu</h2>
-  </div>
-  <div>
-    <a href="https://vi.wikipedia.org/wiki/T%E1%BB%91_H%E1%BB%AFu"/>
-    <img src="images/To_Huu.jpg" alt="To huu"/>
-    <h2>Tố Hữu</h2>
-  </div>
-  <div class="box-c box-p">
-    <img src="images/To_Huu.jpg" alt="To huu"/>
-    <h2>Tố Hữu</h2>
-  </div><div>
-    <img src="images/To_Huu.jpg" alt="To huu"/>
-    <h2>Tố Hữu</h2>
-  </div>
-  <div>
-    <img src="images/To_Huu.jpg" alt="To huu"/>
-    <h2>Tố Hữu</h2>
-  </div>
-  <div>
-    <img src="images/To_Huu.jpg" alt="To huu"/>
-    <h2>Tố Hữu</h2>
-  </div>
-
-
-
+</section>
+<script type="text/javascript">
+  var xhttp = new XMLHttpRequest();
+  xhttp.onload = function (){
+    var reuslut = this.responseText;
+    var data = JSON.parse(reuslut);
+    var datas = data.list;
+    for (var i=0; i<datas.length;i++){
+      var date=datas[i].dt_txt;
+      var doc=datas[i].main.temp;
+      var des=datas[i].weather[0].description;
+      var icon=datas[i].weather[0].icon;
+      document.getElementById("weather").innerHTML+=`<div>
+        <p>${date}</p>
+        <h2>${doc}</h2>
+        <p>${des}</p>
+        <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="">
+</div>`;
+    }
+  }
+  xhttp.open("GET","http://api.openweathermap.org/data/2.5/forecast?q=Hanoi,vietnam&appid=09a71427c59d38d6a34f89b47d75975c&units=metric");
+  xhttp.send();
+</script>
 </body>
 </html>
