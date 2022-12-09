@@ -2,19 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Layout</title>
+    <title>Weather</title>
     <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
 
 <section class="section main">
     <div class="container">
-        <select name="city" id="select-city" onchange="currentWeather()">
-            <option value="hanoi">Hà Nội</option>
-            <option value="saigon">TP Hồ Chí Minh</option>
-            <option value="london">London</option>
-            <option value="beijing">Bắc Kinh</option>
-        </select>
+        <input id="select-city" placeholder="Enter city" value="hanoi" type="text" name="search"/>
+        <button type="button" onclick="currentWeather()">ok</button>
         <h1 id="cityname">Tên thành phố</h1>
         <h2><span id="nd">35</span><sup>o</sup>C</h2>
         <h3 >độ ẩm: <span id="da"></span>%</h3>
